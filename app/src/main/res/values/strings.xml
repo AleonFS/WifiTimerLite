@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Wifi Timer Lite</string>
+    <string name="wifiStatus">Wifi Status: </string>
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="activity_main"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/box1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/textos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/literalStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="7.5dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/wifiStatus"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/wifiStatus"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:paddingTop="15dp"
+                android:text=""
+                android:textSize="24sp"
+                android:layout_toEndOf="@id/literalStatus"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cajaInferior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp">
+
+            <RelativeLayout
+                android:id="@+id/botones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingBottom="3dp">
+
+                <Button
+                    android:id="@+id/btn_switch"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:onClick="clickSwitch"
+                    android:text="ON/OFF"
+                    android:textAlignment="center"
+                    android:background="@drawable/roundedsapebtnaccent"
+                    android:layout_marginBottom="8dp"
+                    />
+                <Button
+                    android:id="@+id/btn_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_toEndOf="@id/btn_switch"
+                    android:onClick="ClickUpdate"
+                    android:text="Actualizar"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_add"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toEndOf="@id/btn_update"
+                    android:background="@drawable/roundedsapebtnprimary"
+                    android:onClick="ClickToAdd"
+                    android:text="+"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textSize="40dp"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
+
+
+
+            <TimePicker
+                android:id="@+id/alarmTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:id="@+id/literalON"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/literalStartAt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="125dp"
+                    android:text="Hora de Encendido"
+                    android:textSize="24sp"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/addStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="onStartAlarm"
+                    android:text="Añadir ON"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/literalOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/literalEndAt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="125dp"
+                    android:text="Hora de Apagado"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

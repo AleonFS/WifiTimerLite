@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Wifi Timer Ligero</string>
+    <string name="wifiStatus">Estado Wifi: </string>
+</resources>
