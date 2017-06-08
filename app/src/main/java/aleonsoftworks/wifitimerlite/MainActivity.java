@@ -92,16 +92,34 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     /*Alarma*/
     public void onStartAlarm(View view) {
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
         calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
+        calendar.set(Calendar.SECOND, 0);
+
         Intent myIntent = new Intent(MainActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, 0);
         alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
-        Toast toast = Toast.makeText(this,"ON!",Toast.LENGTH_LONG);
+
+        Toast toast = Toast.makeText(this,"Programado!",Toast.LENGTH_LONG);
         toast.show();
+
+        TextView pickerOn = (TextView)findViewById(R.id.literalStartAt);
+        TextView addStart = (TextView)findViewById(R.id.addStart);
+        alarmTimePicker.setVisibility(view.INVISIBLE);
+        pickerOn.setVisibility(view.INVISIBLE);
+        addStart.setVisibility(view.INVISIBLE);
+
+        TextView switchTime = (TextView)findViewById(R.id.switchTime);
+        String minutes="";
+        if(alarmTimePicker.getCurrentMinute()<10){
+            minutes = "0"+alarmTimePicker.getCurrentMinute().toString();
+        }else{
+            minutes = alarmTimePicker.getCurrentMinute().toString();
+        }
+        switchTime.setText(alarmTimePicker.getCurrentHour()+":"+minutes);
+
     }
 
 }
